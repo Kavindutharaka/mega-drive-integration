@@ -30,16 +30,12 @@ router.get('/', async (req, res) => {
                 const childPath = path.join(destination, child.name);
 
                 if (child.directory) {
-                    // Create subfolder and process its contents
                     if (!fs.existsSync(childPath)) {
                         fs.mkdirSync(childPath, { recursive: true });
                     }
                     console.log(`Created folder: ${childPath}`);
-
-                    // Recursively process the subfolder
                     await downloadFolder(child, childPath);
                 } else {
-                    // Download file
                     console.log(`Downloading file: ${child.name}`);
                     await new Promise((resolve, reject) => {
                         const writeStream = fs.createWriteStream(childPath);
@@ -51,8 +47,6 @@ router.get('/', async (req, res) => {
                 }
             }
         }
-
-        // Start the recursive download
         await downloadFolder(folder, fullDownloadDir);
         res.send("All files downloaded successfully.");
     } catch (err) {
