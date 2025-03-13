@@ -1,9 +1,25 @@
 schemaVersion: "1.1"
 endpoints:
     - name: mega-drive-integration-endpoint
-      displayName: mega-drive-integration-endpoint
+      displayName: mega-drive-home
       service:
         basePath: /
+        port: 3000
+      type: REST
+      networkVisibilities:
+        - Public
+    - name: mega-drive-upload-endpoint
+      displayName: mega-drive-upload
+      service:
+        basePath: /upload
+        port: 3000
+      type: REST
+      networkVisibilities:
+        - Public
+    - name: mega-drive-download-endpoint
+      displayName: mega-drive-download
+      service:
+        basePath: /download
         port: 3000
       type: REST
       networkVisibilities:
