@@ -1,4 +1,4 @@
-const storage = require('../config/storage');
+const storage = require('../configStorage/storage');
 
 const navigateToPath = (storage, path) => {
     let currentFolder = storage.root;

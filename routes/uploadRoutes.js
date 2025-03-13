@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
-const storage = require('../config/storage');
+const storage = require('../configStorage/storage');
 const { getFolderId } = require('../utils/helpers');
 
 const router = express.Router();
